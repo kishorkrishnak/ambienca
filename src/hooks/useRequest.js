@@ -8,7 +8,7 @@ import axios from 'axios'
 const useRequest = (url) =>{
     const [data,setData] = useState({})
     const [loading,setLoading] = useState(true)
-    const[errorMsg,setErrorMsg] = useState('')
+
 
     useEffect(()=>{
         axios.get(url).then((res)=>{

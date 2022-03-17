@@ -9,8 +9,8 @@ import Search from './components/Search';
 import CurrentWeather from './components/CurrentWeather';
 function App() { 
   const [searchResults,setSearchResults] = useState("kolkata")
-  const url = `https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_WEATHER_KEY}&q=${searchResults}&days=10&aqi=no&alerts=no`
-  
+  const url = 
+  `https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_WEATHER_KEY}&q=${searchResults}&days=10&aqi=no&alerts=no`
   const {data} = useRequest(url)
  console.log(data)
   return (

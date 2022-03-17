@@ -1,0 +1,21 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+.box-shadow{
+    box-shadow:1px 0px 12px 0px rgba(100,100,100,0.75);
+    -webkit-box-shadow:1px 0px 12px 0px rgba(100,100,100,0.75);
+    -moz-box-shadow:1px 0px 12px 0px rgba(100,100,100,0.75);
+    border-radius: 15px;
+   
+
+}
+
+
+body{
+    max-width: 800px;
+    margin-inline:auto;
+}

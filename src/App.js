@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <ToastContainer></ToastContainer>
-      <h2 style={{margin:"30px 0px"}}>Ambienca</h2>
+      <h1 style={{margin:"30px 0px",fontSize:"40px"}}>Ambi<span style={{color:"red"}}>enca</span></h1>
       {Object.keys(data).length !==0 && <>
      <Search setSearchResults={setSearchResults}></Search>
     <CurrentWeather data = {data}></CurrentWeather>

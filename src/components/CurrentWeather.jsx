@@ -5,11 +5,12 @@ const CurrentWeather = ({data}) => {
     <StyledCurrentWeather>
 <div className="current-weather box-shadow">
     <img src={data.current.condition.icon} alt="icon" />
-<h1>{data.current.temp_c}</h1>
+<h1>{data.current.temp_c} <sup style={{fontSize:"24px"}}>&deg;C</sup></h1>
+
 
 <div className="content">
-    <h5>Precipitation {data.current.precip_in}</h5>
-    <h5>Wind: {data.current.wind_kph}</h5>
+    <h4 >Precipitation {data.current.precip_in}</h4>
+    <h4>Wind: {data.current.wind_kph}</h4>
 </div>
 </div>
 

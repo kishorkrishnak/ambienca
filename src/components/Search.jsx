@@ -11,7 +11,7 @@ const onSubmit =  e =>{
   return (
     <StyledSearch>
       <form onSubmit={onSubmit}>
-        <input type='text' placeholder='Type your location and hit Enter' value={search} onChange={(e) => setSearch(e.target.value)}></input>
+        <input  type='text' placeholder='Type your location and hit Enter' value={search} onChange={(e) => setSearch(e.target.value)}></input>
 
       </form>
 
@@ -27,8 +27,12 @@ input{
   border-radius:10px;
   padding-left:20px;
 
+
 }
-  
+  input:focus{
+    outline:1px solid purple;
+    box-shadow: 0 0 5px 0 purple;
+  }
 
 
 `

@@ -6,18 +6,23 @@ function Forecast({ data }) {
 
   return (
     <StyledForecast>
-      <h1 style={{display:'inline',fontSize:"40px"}}>Current Weather</h1> 
+      <h1 style={{ display: "inline", fontSize: "40px", marginLeft: 5 }}>
+        Current Weather
+      </h1>
       <div>
-      <h4 style={{fontSize:"23px",fontWeight:"bold"}}>{moment(currentWeather.time).format('dddd')}</h4>
-      <span style={{fontSize:"22px",fontWeight:"bold"}}>{moment(currentWeather.time).format('L')}</span>
+        <h4 style={{ fontSize: "23px", fontWeight: "bold", marginLeft: 5 }}>
+          {moment(currentWeather.time).format("dddd")}
+        </h4>
+        <span style={{ fontSize: "22px", fontWeight: "bold", marginLeft: 5 }}>
+          {moment(currentWeather.time).format("L")}
+        </span>
       </div>
-      <div className="box-shadow current-forecast" style={{marginTop:"10px"}}>
+      <div
+        className="box-shadow current-forecast"
+        style={{ marginTop: "10px" }}
+      >
         {currentWeather.map((weather) => (
-         
-          <div  key={weather.time_epoch} className="card box-shadow">
-           
-             
-            
+          <div key={weather.time_epoch} className="card box-shadow">
             <span>{moment(weather.time).format("h:mm a")}</span>
             <img src={weather.condition.icon} alt="weather icon" />
             <p>{weather.temp_c} °C</p>
@@ -25,20 +30,21 @@ function Forecast({ data }) {
         ))}
       </div>
 
-      <h2 style={{fontSize:"40px"}}>Future Forecast</h2>
+      <h2 style={{ fontSize: "40px", marginLeft: 5 }}>Future Forecast</h2>
 
       {data.forecast.forecastday.map((futureWeather) => (
         <div className="future-forecast" key={futureWeather.date_epoch}>
-          {console.log(futureWeather)}
-              <h4 style={{fontSize:"23px",fontWeight:"bold"}}>{moment(futureWeather.date).format('dddd')}</h4>
-      <span style={{fontSize:"22px",fontWeight:"bold"}}>{moment(futureWeather.date).format('L')}</span>
+          <h4 style={{ fontSize: "23px", fontWeight: "bold", marginLeft: 5 }}>
+            {moment(futureWeather.date).format("dddd")}
+          </h4>
+          <span style={{ fontSize: "22px", fontWeight: "bold", marginLeft: 5 }}>
+            {moment(futureWeather.date).format("L")}
+          </span>
           <div className="box-shadow current-forecast">
             {futureWeather.hour.map((weather) => (
               <div key={weather.time_epoch} className="card box-shadow">
-      
-
                 <span>{moment(weather.time).format("h:mm a")}</span>
-            
+
                 <span>{weather.date}</span>
                 <img src={weather.condition.icon} alt="weather icon" />
                 <p>{weather.temp_c} °C</p>
@@ -60,7 +66,6 @@ const StyledForecast = styled.div`
     display: flex;
     overflow-y: hidden;
     padding: 20px;
-   
 
     .card {
       padding: 10px;

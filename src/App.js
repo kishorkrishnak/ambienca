@@ -11,12 +11,11 @@ function App() {
   const [searchResults, setSearchResults] = useState("kolkata");
   const url = `https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_WEATHER_KEY}&q=${searchResults}&days=10&aqi=no&alerts=no`;
   const { data } = useRequest(url);
-  console.log(data);
   return (
     <div className="App">
       <ToastContainer></ToastContainer>
       <h1 style={{ margin: "30px 5px", fontSize: "40px", marginLeft: 5 }}>
-        Ambi<span style={{ color: "red" }}>enca</span>
+        Ambi<span style={{ color: "#F44336" }}>enca</span>
       </h1>
       {Object.keys(data).length !== 0 && (
         <>

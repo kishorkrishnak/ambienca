@@ -3,7 +3,7 @@ import styled from "styled-components";
 import moment from "moment";
 function Forecast({ data }) {
   const currentWeather = data.forecast.forecastday[0].hour;
-
+  console.log(data.forecast);
   return (
     <StyledForecast>
       <h1 style={{ display: "inline", fontSize: "40px", marginLeft: 5 }}>
@@ -14,7 +14,7 @@ function Forecast({ data }) {
           {moment(currentWeather.time).format("dddd")}
         </h4>
         <span style={{ fontSize: "22px", fontWeight: "bold", marginLeft: 5 }}>
-          {moment(currentWeather.time).format("L")}
+          {moment(currentWeather.time).format("DD/MM/YYYY")}
         </span>
       </div>
       <div
@@ -32,27 +32,31 @@ function Forecast({ data }) {
 
       <h2 style={{ fontSize: "40px", marginLeft: 5 }}>Future Forecast</h2>
 
-      {data.forecast.forecastday.map((futureWeather) => (
-        <div className="future-forecast" key={futureWeather.date_epoch}>
-          <h4 style={{ fontSize: "23px", fontWeight: "bold", marginLeft: 5 }}>
-            {moment(futureWeather.date).format("dddd")}
-          </h4>
-          <span style={{ fontSize: "22px", fontWeight: "bold", marginLeft: 5 }}>
-            {moment(futureWeather.date).format("L")}
-          </span>
-          <div className="box-shadow current-forecast">
-            {futureWeather.hour.map((weather) => (
-              <div key={weather.time_epoch} className="card box-shadow">
-                <span>{moment(weather.time).format("h:mm a")}</span>
+      {data.forecast.forecastday.map((futureWeather, index) =>
+        index !== 0 ? (
+          <div className="future-forecast" key={futureWeather.date_epoch}>
+            <h4 style={{ fontSize: "23px", fontWeight: "bold", marginLeft: 5 }}>
+              {moment(futureWeather.date).format("dddd")}
+            </h4>
+            <span
+              style={{ fontSize: "22px", fontWeight: "bold", marginLeft: 5 }}
+            >
+              {moment(futureWeather.date).format("DD/MM/YYYY")}
+            </span>
+            <div className="box-shadow current-forecast">
+              {futureWeather.hour.map((weather) => (
+                <div key={weather.time_epoch} className="card box-shadow">
+                  <span>{moment(weather.time).format("h:mm a")}</span>
 
-                <span>{weather.date}</span>
-                <img src={weather.condition.icon} alt="weather icon" />
-                <p>{weather.temp_c} °C</p>
-              </div>
-            ))}
+                  <span>{weather.date}</span>
+                  <img src={weather.condition.icon} alt="weather icon" />
+                  <p>{weather.temp_c} °C</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ) : null
+      )}
     </StyledForecast>
   );
 }
